@@ -1,0 +1,86 @@
+---
+version: "3.8"
+
+services:
+  app:
+    hostname: "dev-box"
+    container_name: "dev-box"
+    image: "ghcr.io/acivilate/my-devenv_devcontainer_app"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      cache_from:
+        - "ghcr.io/acivilate/my-devenv_devcontainer_app:latest"
+      args:
+        # Update the VARIANT arg to pick a Java version: 11, 17
+        # Append -bullseye or -buster to pin to an OS version.
+        # Use -bullseye variants on local arm64/Apple Silicon.
+        VARIANT: 21-bookworm
+        INSTALL_MAVEN: "true"
+        INSTALL_GRADLE: "true"
+        NODE_VERSION: "20"
+
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - SSH_AUTH_SOCK=/home/vscode/.ssh/ssh_auth_sock
+      - LOCALSTACK_HOST=localstack
+      - LOCALSTACK_HOSTNAME=localstack
+      - EDGE_PORT=4566
+      - DEFAULT_REGION=us-east-1
+      - USE_CDK_LOCAL=${USE_CDK_LOCAL-0}
+      - GIT_EDITOR=${GIT_EDITOR-lvim}
+      - AWS_SAM_LOCAL=true
+
+    volumes:
+      - ..:/workspace:cached
+      - /:/local-host:cached
+      - ~/projects:/projects:cached
+      - ~/.aws:/home/vscode/.aws:cached
+      - ~/.ssh:/home/vscode/.ssh:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    ports:
+      - "3000:3000"
+      - "4200:4200"
+      - "4300:4300"
+      - "5200:5200"
+      - "5300:5300"
+      - "4211:4211"
+
+    # Overrides default command so things don't shut down after
+    # the process ends.
+    command: sleep infinity
+
+    # Runs app on the same network as the database container, allows
+    # "forwardPorts" in devcontainer.json function.
+    networks:
+      - app_network
+      - utils_network
+
+    privileged: true
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME-localstack}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566" # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559" # external services port range
+    environment:
+      - DEBUG=${DEBUG-}
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LOCALSTACK_API_KEY=${LOCALSTACK_API_KEY- }
+      - RDS_MYSQL_DOCKER=1
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    external: false
+  utils_network:
+    external: false
