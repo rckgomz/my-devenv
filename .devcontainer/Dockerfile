@@ -336,6 +336,6 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN dos2unix /usr/local/bin/docker-entrypoint.sh
 
 USER vscode
-RUN /bin/sh -c 'nvim --headless "+Lazy! sync" +qa'
+RUN /usr/local/bin/nvim --headless "+Lazy! sync" +qa
 
 ENTRYPOINT ["docker-entrypoint.sh"]
