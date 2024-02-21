@@ -5,12 +5,12 @@ services:
   app:
     hostname: "dev-box"
     container_name: "dev-box"
-    image: "ghcr.io/acivilate/my-devenv_devcontainer_app"
+    image: "ghcr.io/rckgomz/my-devenv_devcontainer_app"
     build:
       context: .
       dockerfile: Dockerfile
       cache_from:
-        - "ghcr.io/acivilate/my-devenv_devcontainer_app:latest"
+        - "ghcr.io/rckgomz/my-devenv_devcontainer_app:latest"
       args:
         # Update the VARIANT arg to pick a Java version: 11, 17
         # Append -bullseye or -buster to pin to an OS version.
