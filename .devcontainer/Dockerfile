@@ -316,6 +316,7 @@ RUN TREE_SITTER_DOWNLOAD_DIR=$(mktemp -d) \
   && mv ${TREE_SITTER_DOWNLOAD_DIR}/tree-sitter-linux-x64 /usr/local/bin/tree-sitter
 
 # install neovim
+COPY ./dotfiles/nvim/ /tmp/tmp-nvim-config
 RUN NVIM_DOWNLOAD_DIR=$(mktemp -d) \
   && NVIM_VERSION=$(curl -s "https://api.github.com/repos/neovim/neovim/releases/latest" | jq -r ".tag_name") \
   && FILE=nvim-linux64.tar.gz \
@@ -323,9 +324,14 @@ RUN NVIM_DOWNLOAD_DIR=$(mktemp -d) \
   && wget ${URL} -P ${NVIM_DOWNLOAD_DIR} \
   && tar xf ${NVIM_DOWNLOAD_DIR}/${FILE} -C / \
   && ln -fs /nvim-linux64/bin/nvim /usr/local/bin/nvim \
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/nvim/ /home/vscode/.config/nvim" \
   && mkdir -p /home/vscode/.local/share/nvim\
-  && chown -R vscode:vscode /home/vscode/.local
+  && chown -R vscode:vscode /home/vscode/.local\
+  && su vscode -c "umask 0002 && mkdir -p /home/vscode/.config/nvim && cp -a /tmp/tmp-nvim-config/* /home/vscode/.config/nvim"\
+  && su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'Lazy! sync' -c 'qa'"
+RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall bash-language-server bash-debug-adapter css-lsp docker-compose-language-service dockerfile-language-server jq-lsp markdownlint node-debug2-adapter prisma-language-server typescript-language-server vim-language-server yaml-language-server lua-language-server html-lsp json-lsp tailwindcss-language-server nxls ' -c 'qa'"
+RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall prettierd yamlfmt sqlls eslint_d jsonlint yamllint sqlfluff codespell luacheck jdtls delve go-debug-adapter golangci-lint golangci-lint-langserver golines graphql-language-service-cli goimports gopls rust-analyzer stylua shfmt rustfmt ' -c 'qa'"\
+  && su vscode -c "umask 0002 && rm -rf /home/vscode/.config/nvim" \
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/nvim/ /home/vscode/.config/nvim"
 
 RUN rm -rf /tmp/tmp* \
   && apt-get autoremove -y \
@@ -336,6 +342,4 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN dos2unix /usr/local/bin/docker-entrypoint.sh
 
 USER vscode
-RUN /usr/local/bin/nvim --headless "+Lazy! sync" +qa
-
 ENTRYPOINT ["docker-entrypoint.sh"]
