@@ -26,7 +26,7 @@ jobs:
           tags: rckgomz/my-devenv:latest
           cache-from: |
             rckgomz/my-devenv:cache
-            type=local,src=path/to/dir
+            type=local,src=/tmp/
           cache-to: |
             rckgomz/my-devenv:cache
-            type=local,src=path/to/dir
+            type=local,dest=/tmp/
