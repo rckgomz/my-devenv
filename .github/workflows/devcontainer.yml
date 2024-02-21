@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           file: Dockerfile
-          context: .devcontainer
+          context: ./.devcontainer/
           push: true
           tags: rckgomz/my-devenv:latest
           cache-from: |
