@@ -1,8 +1,12 @@
+include .env
+export $(shell sed 's/=.*//' .env)
+FORCE := ""
+
 # all: app.up app.seed app.start
 app.down:
-	docker compose -f .devcontainer/docker-compose-utils.yml --project-name my-devenv down
+	./tools/scripts/app-down.sh
 app.restart:
-	docker compose -f .devcontainer/docker-compose-utils.yml --project-name my-devenv restart
+	./tools/scripts/restart.sh
 app.seed:
 	./tools/scripts/seed.sh
 app.start:
@@ -12,19 +16,19 @@ app.test:
 app.test-ci:
 	./tools/scripts/test-ci.sh
 app.up:
-	docker compose -f .devcontainer/docker-compose-utils.yml --project-name my-devenv up -d
+	./tools/scripts/app-up.sh
 dev:
-	./tools/scripts/dev-start.sh
+	./tools/scripts/dev-start.sh ${FORCE}
 dev.attach:
 	./tools/scripts/dev-attach.sh
 dev.build:
 	./tools/scripts/build-dev.sh
 dev.down:
-	docker compose -f .devcontainer/docker-compose.yml -f .devcontainer/docker-compose-utils.yml --project-name my-devenv down
+	./tools/scripts/dev-down.sh
 dev.start:
 	echo 'dev.start'
 dev.stop:
-	docker compose -f .devcontainer/docker-compose.yml -f .devcontainer/docker-compose-utils.yml --project-name my-devenv stop app
+	./tools/scripts/dev-stop.sh
 
 .PHONY: all
 .PHONY: app.down
