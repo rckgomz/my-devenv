@@ -21,7 +21,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          file: .devcontainer/Dockerfile
+          file: ./.devcontainer/Dockerfile
           context: .
           push: true
           tags: rckgomz/my-devenv:latest
