@@ -22,7 +22,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           file: .devcontainer/Dockerfile
-          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:latest
           cache-from: |
