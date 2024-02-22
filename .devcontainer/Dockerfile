@@ -338,8 +338,8 @@ RUN rm -rf /tmp/tmp* \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
-COPY ./docker-entrypoint.sh /usr/local/bin/
-RUN dos2unix /usr/local/bin/docker-entrypoint.sh
-
-USER vscode
-ENTRYPOINT ["/usr/loca/bin/docker-entrypoint.sh"]
+# COPY ./docker-entrypoint.sh /usr/local/bin/
+# RUN dos2unix /usr/local/bin/docker-entrypoint.sh
+#
+# USER vscode
+# ENTRYPOINT ["/usr/loca/bin/docker-entrypoint.sh"]
