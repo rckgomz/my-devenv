@@ -21,7 +21,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .devcontainer
+          context: "{{defaultContext}}:.devcontainer"
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:latest
           cache-from: |
