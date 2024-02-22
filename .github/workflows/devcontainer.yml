@@ -21,8 +21,8 @@ jobs:
       - name: Build and run Dev Container task
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
-          cacheFrom: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
+          imageName: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv_devcontainer_app:latest
+          cacheFrom: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv_devcontainer_app:latest
           push: always
 # name: ci
 #
