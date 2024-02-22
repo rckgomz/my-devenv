@@ -24,10 +24,10 @@ jobs:
           file: Dockerfile
           context: .devcontainer
           push: true
-          tags: rckgomz/my-devenv:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:latest
           cache-from: |
-            rckgomz/my-devenv:cache
+            ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
             type=local,src=/tmp/
           cache-to: |
-            rckgomz/my-devenv:cache
+            ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
             type=local,dest=/tmp/
