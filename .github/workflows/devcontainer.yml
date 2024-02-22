@@ -21,12 +21,12 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          file: .devcontainer/Dockerfile
+          context: .devcontainer
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:latest
-          # cache-from: |
-          #   ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
-          #   type=local,src=/tmp/
-          # cache-to: |
-          #   ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
-          #   type=local,dest=/tmp/
+          cache-from: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
+            type=local,src=/tmp/
+          cache-to: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/my-devenv:cache
+            type=local,dest=/tmp/
