@@ -342,4 +342,4 @@ COPY ./docker-entrypoint.sh /usr/local/bin/
 RUN dos2unix /usr/local/bin/docker-entrypoint.sh
 
 USER vscode
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/loca/bin/docker-entrypoint.sh"]
