@@ -21,8 +21,8 @@ jobs:
       - name: Build and run Dev Container task
         uses: devcontainers/ci@v0.3
         with:
-          imageName: rckgomz/my-devenv_devcontainer_app:latest
-          cacheFrom: rckgomz/my-devenv_devcontainer_app:latest
+          imageName: rckgomz/my-devenv_devcontainer_app
+          cacheFrom: rckgomz/my-devenv_devcontainer_app
           push: always
 # name: ci
 #
