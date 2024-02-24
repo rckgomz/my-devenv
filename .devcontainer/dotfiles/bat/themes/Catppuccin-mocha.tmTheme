@@ -1,179 +1,62 @@
-< field</string>
-        <key>scope</key>
-        <string>source.lua meta.function.lua meta.block.lua meta.mapping.value.lua meta.mapping.key.lua string.unquoted.key.lua</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#b4befe</string>
-          <key>fontStyle</key>
-          <string>italic</string>
-        </dict>
-      </dict>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Catppuccin</string>
+    <key>settings</key>
+    <array>
       <dict>
-        <key>name</key>
-        <string>Lua constructor</string>
-        <key>scope</key>
-        <string>source.lua meta.function.lua meta.block.lua meta.mapping.key.lua string.unquoted.key.lua</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#f2cdcd</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Java constant</string>
-        <key>scope</key>
-        <string>entity.name.constant.java</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#94e2d5</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>CSS property</string>
-        <key>scope</key>
-        <string>support.type.property-name.css</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#f2cdcd</string>
-          <key>fontStyle</key>
-          <string>italic</string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>CSS constant</string>
-        <key>scope</key>
-        <string>support.constant.property-value.css</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#cdd6f4</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>CSS suffix</string>
-        <key>scope</key>
-        <string>constant.numeric.suffix.css, keyword.other.unit.css</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#94e2d5</string>
-          <key>fontStyle</key>
-          <string>italic</string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>CSS variable property</string>
-        <key>scope</key>
-        <string>variable.other.custom-property.name.css, support.type.custom-property.name.css, punctuation.definition.custom-property.css</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#94e2d5</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>SCSS tag</string>
-        <key>scope</key>
-        <string>entity.name.tag.css</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#b4befe</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>SASS variable</string>
-        <key>scope</key>
-        <string>variable.other.sass</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#94e2d5</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Invalid</string>
-        <key>scope</key>
-        <string>invalid</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
           <string>#cdd6f4</string>
           <key>background</key>
-          <string>#f38ba8</string>
-          <key>fontStyle</key>
-          <string></string>
+          <string>#1e1e2e</string>
+          <key>caret</key>
+          <string>#bac2de</string>
+          <key>invisibles</key>
+          <string>#a6adc8</string>
+          <key>gutterForeground</key>
+          <string>#9399b2</string>
+          <key>gutterForegroundHighlight</key>
+          <string>#a6e3a1</string>
+          <key>lineHighlight</key>
+          <string>#585b70</string>
+          <key>selection</key>
+          <string>#6c7086</string>
+          <key>selectionBorder</key>
+          <string>#1e1e2e</string>
+          <key>activeGuide</key>
+          <string>#fab387</string>
+          <key>findHighlightForeground</key>
+          <string>#181825</string>
+          <key>findHighlight</key>
+          <string>#f9e2af</string>
+          <key>bracketsForeground</key>
+          <string>#9399b2</string>
+          <key>bracketContentsForeground</key>
+          <string>#9399b2</string>
         </dict>
       </dict>
       <dict>
         <key>name</key>
-        <string>Invalid deprecated</string>
+        <string>Comment</string>
         <key>scope</key>
-        <string>invalid.deprecated</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#cdd6f4</string>
-          <key>background</key>
-          <string>#cba6f7</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Diff header</string>
-        <key>scope</key>
-        <string>meta.diff, meta.diff.header</string>
+        <string>comment</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
           <string>#6c7086</string>
           <key>fontStyle</key>
-          <string></string>
+          <string>italic</string>
         </dict>
       </dict>
       <dict>
         <key>name</key>
-        <string>Diff deleted</string>
+        <string>String</string>
         <key>scope</key>
-        <string>markup.deleted</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#f38ba8</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Diff inserted</string>
-        <key>scope</key>
-        <string>markup.inserted</string>
+        <string>string</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
@@ -184,41 +67,81 @@
       </dict>
       <dict>
         <key>name</key>
-        <string>Diff changed</string>
+        <string>String regex</string>
         <key>scope</key>
-        <string>markup.changed</string>
+        <string>string.regexp</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#f9e2af</string>
+          <string>#fab387</string>
           <key>fontStyle</key>
           <string></string>
         </dict>
       </dict>
       <dict>
         <key>name</key>
-        <string>Message error</string>
+        <string>Number</string>
         <key>scope</key>
-        <string>message.error</string>
+        <string>constant.numeric</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#f38ba8</string>
+          <string>#fab387</string>
           <key>fontStyle</key>
           <string></string>
         </dict>
       </dict>
-    </array>
-    <key>uuid</key>
-    <string>4d0379b5-ef82-467b-b8b8-365889420646</string>
-    <key>colorSpaceName</key>
-    <string>sRGB</string>
-    <key>semanticClass</key>
-    <string>theme.dark.Catppuccin</string>
-    <key>author</key>
-    <string>BrunDerSchwarzmagier</string>
-  </dict>
-</plist>   </dict>
+      <dict>
+        <key>name</key>
+        <string>Boolean</string>
+        <key>scope</key>
+        <string>constant.language.boolean</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#fab387</string>
+          <key>fontStyle</key>
+          <string>bold italic</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Built-in constant</string>
+        <key>scope</key>
+        <string>constant.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#b4befe</string>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Built-in function</string>
+        <key>scope</key>
+        <string>support.function.builtin</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#fab387</string>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>User-defined constant</string>
+        <key>scope</key>
+        <string>variable.other.constant</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#fab387</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
       </dict>
       <dict>
         <key>name</key>
@@ -813,117 +736,9 @@
       </dict>
       <dict>
         <key>name</key>
-        <string>Lua?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>name</key>
-    <string>Catppuccin</string>
-    <key>settings</key>
-    <array>
-      <dict>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#cdd6f4</string>
-          <key>background</key>
-          <string>#1e1e2e</string>
-          <key>caret</key>
-          <string>#bac2de</string>
-          <key>invisibles</key>
-          <string>#a6adc8</string>
-          <key>gutterForeground</key>
-          <string>#9399b2</string>
-          <key>gutterForegroundHighlight</key>
-          <string>#a6e3a1</string>
-          <key>lineHighlight</key>
-          <string>#585b70</string>
-          <key>selection</key>
-          <string>#6c7086</string>
-          <key>selectionBorder</key>
-          <string>#1e1e2e</string>
-          <key>activeGuide</key>
-          <string>#fab387</string>
-          <key>findHighlightForeground</key>
-          <string>#181825</string>
-          <key>findHighlight</key>
-          <string>#f9e2af</string>
-          <key>bracketsForeground</key>
-          <string>#9399b2</string>
-          <key>bracketContentsForeground</key>
-          <string>#9399b2</string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Comment</string>
+        <string>Lua field</string>
         <key>scope</key>
-        <string>comment</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#6c7086</string>
-          <key>fontStyle</key>
-          <string>italic</string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>String</string>
-        <key>scope</key>
-        <string>string</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#a6e3a1</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>String regex</string>
-        <key>scope</key>
-        <string>string.regexp</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#fab387</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Number</string>
-        <key>scope</key>
-        <string>constant.numeric</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#fab387</string>
-          <key>fontStyle</key>
-          <string></string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Boolean</string>
-        <key>scope</key>
-        <string>constant.language.boolean</string>
-        <key>settings</key>
-        <dict>
-          <key>foreground</key>
-          <string>#fab387</string>
-          <key>fontStyle</key>
-          <string>bold italic</string>
-        </dict>
-      </dict>
-      <dict>
-        <key>name</key>
-        <string>Built-in constant</string>
-        <key>scope</key>
-        <string>constant.language</string>
+        <string>source.lua meta.function.lua meta.block.lua meta.mapping.value.lua meta.mapping.key.lua string.unquoted.key.lua</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
@@ -934,26 +749,211 @@
       </dict>
       <dict>
         <key>name</key>
-        <string>Built-in function</string>
+        <string>Lua constructor</string>
         <key>scope</key>
-        <string>support.function.builtin</string>
+        <string>source.lua meta.function.lua meta.block.lua meta.mapping.key.lua string.unquoted.key.lua</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#fab387</string>
+          <string>#f2cdcd</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Java constant</string>
+        <key>scope</key>
+        <string>entity.name.constant.java</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#94e2d5</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>CSS property</string>
+        <key>scope</key>
+        <string>support.type.property-name.css</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f2cdcd</string>
           <key>fontStyle</key>
           <string>italic</string>
         </dict>
       </dict>
       <dict>
         <key>name</key>
-        <string>User-defined constant</string>
+        <string>CSS constant</string>
         <key>scope</key>
-        <string>variable.other.constant</string>
+        <string>support.constant.property-value.css</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#fab387</string>
+          <string>#cdd6f4</string>
           <key>fontStyle</key>
           <string></string>
-
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>CSS suffix</string>
+        <key>scope</key>
+        <string>constant.numeric.suffix.css, keyword.other.unit.css</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#94e2d5</string>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>CSS variable property</string>
+        <key>scope</key>
+        <string>variable.other.custom-property.name.css, support.type.custom-property.name.css, punctuation.definition.custom-property.css</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#94e2d5</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>SCSS tag</string>
+        <key>scope</key>
+        <string>entity.name.tag.css</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#b4befe</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>SASS variable</string>
+        <key>scope</key>
+        <string>variable.other.sass</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#94e2d5</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Invalid</string>
+        <key>scope</key>
+        <string>invalid</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#cdd6f4</string>
+          <key>background</key>
+          <string>#f38ba8</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Invalid deprecated</string>
+        <key>scope</key>
+        <string>invalid.deprecated</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#cdd6f4</string>
+          <key>background</key>
+          <string>#cba6f7</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Diff header</string>
+        <key>scope</key>
+        <string>meta.diff, meta.diff.header</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#6c7086</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Diff deleted</string>
+        <key>scope</key>
+        <string>markup.deleted</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f38ba8</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Diff inserted</string>
+        <key>scope</key>
+        <string>markup.inserted</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a6e3a1</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Diff changed</string>
+        <key>scope</key>
+        <string>markup.changed</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f9e2af</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Message error</string>
+        <key>scope</key>
+        <string>message.error</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f38ba8</string>
+          <key>fontStyle</key>
+          <string></string>
+        </dict>
+      </dict>
+    </array>
+    <key>uuid</key>
+    <string>4d0379b5-ef82-467b-b8b8-365889420646</string>
+    <key>colorSpaceName</key>
+    <string>sRGB</string>
+    <key>semanticClass</key>
+    <string>theme.dark.Catppuccin</string>
+    <key>author</key>
+    <string>BrunDerSchwarzmagier</string>
+  </dict>
+</plist>

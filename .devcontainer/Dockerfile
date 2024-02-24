@@ -310,7 +310,7 @@ RUN su vscode -c "umask 0002 && rm -rf /home/vscode/.zshrc && ln -s /workspace/.
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/mycli /home/vscode/.config/mycli"\
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/lazydocker /home/vscode/.config/lazydocker" \
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/lazygit /home/vscode/.config/lazygit"\
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bat /home/vscode/.config/bat"\
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bat /home/vscode/.config/bat && bat cache --build"\
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bottom /home/vscode/.config/bottom"
 
 # tree-sitter
