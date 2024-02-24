@@ -77,6 +77,13 @@ RUN AWS_DOWNLOAD_DIR=$(mktemp -d) \
   && unzip ${AWS_DOWNLOAD_DIR}/${FILE} -d ${AWS_DOWNLOAD_DIR} \
   && ${AWS_DOWNLOAD_DIR}/aws/install
 
+# aws session manager plugin for debian; helps debug codebuild
+RUN AWS_SSM_DOWNLOAD_DIR=$(mktemp -d) \
+  && FILE="session-manager-plugin.deb" \
+  && URL="https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/${FILE}" \
+  && wget ${URL} -P ${AWS_SSM_DOWNLOAD_DIR} \
+  && dpkg -i ${AWS_SSM_DOWNLOAD_DIR}/${FILE}
+
 # aws sam
 RUN AWS_SAM_DOWNLOAD_DIR=$(mktemp -d) \
   && FILE="aws-sam-cli-linux-x86_64.zip" \
