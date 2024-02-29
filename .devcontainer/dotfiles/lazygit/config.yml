@@ -14,26 +14,26 @@ gui:
   shortTimeFormat: 3:04PM
   theme:
     activeBorderColor:
-      - '#f5e0dc'
+      - "#f5e0dc"
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - "#a6adc8"
     optionsTextColor:
-      - '#89b4fa'
+      - "#89b4fa"
     selectedLineBgColor:
-      - '#313244'
+      - "#313244"
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - "#45475a"
     cherryPickedCommitFgColor:
-      - '#f5e0dc'
+      - "#f5e0dc"
     unstagedChangesColor:
-      - '#f38ba8'
+      - "#f38ba8"
     defaultFgColor:
-      - '#cdd6f4'
+      - "#cdd6f4"
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - "#f9e2af"
   commitLength:
-  show: true
+    show: true
   skipNoStagedFilesWarning: false
   showListFooter: true
   showFileTree: true
@@ -41,24 +41,24 @@ gui:
   showCommandLog: true
   showBottomLine: true
   showIcons: false
-  nerdFontsVersion: ''
+  nerdFontsVersion: ""
   showBranchCommitHash: false
   commandLogSize: 8
   splitDiff: auto
   skipRewordInEditorWarning: false
-  windowSize: ''
+  windowSize: "normal"
   border: single
   animateExplosion: true
 git:
   paging:
     colorArg: always
-    pager: ''
     useConfig: false
+    pager: batdiff --delta --paging=never
   commit:
     signOff: false
   merging:
     manualCommit: false
-    args: ''
+    args: ""
   mainBranches:
     - master
     - main
@@ -76,7 +76,6 @@ git:
     order: topo-order
     showGraph: when-maximised
     showWholeGraph: false
-  diffContextSize: 3
 update:
   method: prompt
   days: 14
@@ -96,12 +95,12 @@ keybinding:
     nextItem: <down>
     prevItem-alt: k
     nextItem-alt: j
-    prevPage: ','
+    prevPage: ","
     nextPage: .
     scrollLeft: H
     scrollRight: L
     gotoTop: <
-    gotoBottom: '>'
+    gotoBottom: ">"
     prevBlock: <left>
     nextBlock: <right>
     prevBlock-alt: h
@@ -109,22 +108,22 @@ keybinding:
     nextBlock-alt2: <tab>
     prevBlock-alt2: <backtab>
     jumpToBlock:
-      - '1'
-      - '2'
-      - '3'
-      - '4'
-      - '5'
-    nextMatch: 'n'
-    prevMatch: 'N'
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+    nextMatch: "n"
+    prevMatch: "N"
     startSearch: /
-    optionMenu: ''
-    optionMenu-alt1: '?'
+    optionMenu: ""
+    optionMenu-alt1: "?"
     select: <space>
     goInto: <enter>
     confirm: <enter>
     confirmInEditor: <a-enter>
     remove: d
-    new: 'n'
+    new: "n"
     edit: e
     openFile: o
     scrollUpMain: <pgup>
@@ -133,14 +132,14 @@ keybinding:
     scrollDownMain-alt1: J
     scrollUpMain-alt2: <c-u>
     scrollDownMain-alt2: <c-d>
-    executeCustomCommand: ':'
+    executeCustomCommand: ":"
     createRebaseOptionsMenu: m
     pushFiles: P
     pullFiles: p
     refresh: R
     createPatchOptionsMenu: <c-p>
-    nextTab: ']'
-    prevTab: '['
+    nextTab: "]"
+    prevTab: "["
     nextScreenMode: +
     prevScreenMode: _
     undo: z
@@ -151,10 +150,10 @@ keybinding:
     copyToClipboard: <c-o>
     openRecentRepos: <c-r>
     submitEditorText: <enter>
-    extrasMenu: '@'
+    extrasMenu: "@"
     toggleWhitespaceInDiffView: <c-w>
-    increaseContextInDiffView: '}'
-    decreaseContextInDiffView: '{'
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -171,7 +170,7 @@ keybinding:
     toggleStagedAll: a
     viewResetOptions: D
     fetch: f
-    toggleTreeView: '`'
+    toggleTreeView: "`"
     openMergeTool: M
     openStatusFilter: <c-b>
   branches:
@@ -206,13 +205,12 @@ keybinding:
     pickCommit: p
     revertCommit: t
     cherryPickCopy: c
-    cherryPickCopyRange: C
     pasteCommits: v
     markCommitAsBaseForRebase: B
     tagCommit: T
     checkoutCommit: <space>
     resetCherryPick: <c-R>
-    copyCommitAttributeToClipboard: 'y'
+    copyCommitAttributeToClipboard: "y"
     openLogMenu: <c-l>
     openInBrowser: o
     viewBisectOptions: b
@@ -222,8 +220,6 @@ keybinding:
   commitFiles:
     checkoutCommitFile: c
   main:
-    toggleDragSelect: v
-    toggleDragSelect-alt: V
     toggleSelectHunk: a
     pickBothHunks: b
     editSelectHunk: E

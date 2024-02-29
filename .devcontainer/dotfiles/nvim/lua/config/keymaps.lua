@@ -56,7 +56,7 @@ vim.keymap.set(
   { silent = true, desc = "Go to right window", remap = true }
 )
 
-vim.keymap.set("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Safe buffer", remap = true, silent = true })
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Safe buffer", noremap = true, silent = true })
 
 -- telescope
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })

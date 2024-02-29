@@ -193,6 +193,19 @@ RUN BAT_DOWNLOAD_DIR=$(mktemp -d) \
   -P ${BAT_DOWNLOAD_DIR} \
   && dpkg -i ${BAT_DOWNLOAD_DIR}/bat_${BAT_VERSION}_amd64.deb
 
+# batdiff
+RUN su vscode -c "umask 0002 && git clone https://github.com/eth-p/bat-extras.git /home/vscode/bat-extras" && \
+  chmod +x /home/vscode/bat-extras/src/batdiff.sh && \
+  ln -s /home/vscode/bat-extras/src/batdiff.sh /usr/local/bin/batdiff
+
+
+# delta
+RUN DELTA_DOWNLOAD_DIR=$(mktemp -d) \
+  && DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | jq -r ".tag_name") \
+  && wget "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_amd64.deb" \
+  -P ${DELTA_DOWNLOAD_DIR} \
+  && dpkg -i ${DELTA_DOWNLOAD_DIR}/git-delta_${DELTA_VERSION}_amd64.deb
+
 # lsd
 RUN LSD_DOWNLOAD_DIR=$(mktemp -d) \
   && LSD_DOWNLOAD_VERSION=$(curl -s "https://api.github.com/repos/lsd-rs/lsd/releases/latest" | jq -r ".tag_name") \

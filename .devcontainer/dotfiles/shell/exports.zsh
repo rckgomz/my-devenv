@@ -50,3 +50,6 @@ export ANDROID_USER_HOME="/home/vscode/.android"
 
 #bat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+#batdiff
+BATDIFF_USE_DELTA=true
