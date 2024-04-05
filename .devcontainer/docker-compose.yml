@@ -5,7 +5,7 @@ services:
   app:
     hostname: "dev-box"
     container_name: "dev-box"
-    image: "docker.io/rckgomz/my-devenv_devcontainer_app"
+    image: "docker.io/rckgomz/my-devenv_devcontainer_app:latest"
     build:
       context: .
       dockerfile: Dockerfile
