@@ -12,4 +12,4 @@ fi
 MY_SSH="--mount type=bind,source=${SSH_AUTH_SOCK},target=/home/vscode/.ssh/ssh_auth_sock"
 
 # shellcheck disable=2086
-devcontainer up --remove-existing-container ${GIT_CONFIG} ${MY_SSH} --workspace-folder ./ --workspace-mount-consistency cached
+devcontainer up --cache-from docker.io/rckgomz/my-devenv_devcontainer_app:latest --remove-existing-container ${GIT_CONFIG} ${MY_SSH} --workspace-folder ./ --workspace-mount-consistency cached

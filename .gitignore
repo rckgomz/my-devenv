@@ -1,2 +1,4 @@
 .devcontainer/dotfiles/lazygit/state.yml
-.devcontainer/volume
+.devcontainer/volume/
+.devcontainer/volume/cache
+    
