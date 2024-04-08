@@ -64,6 +64,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
   file \
   bison \
   byacc \
+  libnss3 \
+  libnspr4 \
+  libasound2 \
   && apt-get autoremove -y \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
