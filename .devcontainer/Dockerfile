@@ -182,6 +182,9 @@ ENV PATH="${PNPM_HOME}:${PATH}"
 RUN su vscode -c "umask 0002 && pnpm install -g @commitlint/cli @commitlint/config-conventional neovim \
   tree-sitter-cli nx  nativescript  aws-cdk aws-cdk-local log4js"
 
+# install playwright deps
+RUN su vscode -c "umask 0002 && pnpm dlx playwright install && pnpm dlx playwright install-deps"
+
 # btm
 RUN BTM_DOWNLOAD_DIR=$(mktemp -d) \
   && BOTTOM_VERSION=$(curl -s "https://api.github.com/repos/ClementTsang/bottom/releases/latest" | jq -r ".tag_name") \
