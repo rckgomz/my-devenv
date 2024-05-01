@@ -179,11 +179,8 @@ RUN grep -qxF "$(which zsh)" "/etc/shells" || bash -c "echo $(which zsh) >> /etc
 RUN su vscode -c "umask 0002 && npm install -g pnpm && mkdir -p /home/vscode/.pnpm/store"
 ENV PNPM_HOME="/home/vscode/.pnpm/store"
 ENV PATH="${PNPM_HOME}:${PATH}"
-RUN su vscode -c "umask 0002 && pnpm install -g @commitlint/cli @commitlint/config-conventional neovim \
-  tree-sitter-cli nx  nativescript  aws-cdk aws-cdk-local log4js"
-
-# install playwright deps
-RUN su vscode -c "umask 0002 && pnpm dlx playwright install && pnpm dlx playwright install-deps"
+RUN su vscode -c "umask 0002 && pnpm install -g -D @commitlint/cli @commitlint/config-conventional neovim \
+  tree-sitter-cli nx@latest  nativescript  aws-cdk aws-cdk-local log4js"
 
 # btm
 RUN BTM_DOWNLOAD_DIR=$(mktemp -d) \
@@ -368,5 +365,48 @@ RUN rm -rf /tmp/tmp* \
 COPY ./docker-entrypoint.sh /usr/local/bin/
 RUN dos2unix /usr/local/bin/docker-entrypoint.sh
 
+# playwright
+RUN apt-get update && apt-get install -y \
+  fonts-liberation \
+  libasound2 \
+  libatk-bridge2.0-0 \
+  libatk1.0-0 \
+  libatspi2.0-0 \
+  libcairo2 \
+  libcups2 \
+  libdbus-1-3 \
+  libgbm1 \
+  libgcc1 \
+  libglib2.0-0 \
+  libgtk-3-0 \
+  libnspr4 \
+  libpango-1.0-0 \
+  libpangocairo-1.0-0 \
+  libsecret-1-0 \
+  libstdc++6 \
+  libx11-6 \
+  libx11-xcb1 \
+  libxcb1 \
+  libxcomposite1 \
+  libxcursor1 \
+  libxdamage1 \
+  libxext6 \
+  libxfixes3 \
+  libxi6 \
+  libxrandr2 \
+  libxrender1 \
+  libxss1 \
+  libxtst6 \
+  libnss3 \
+  libatk-bridge2.0-0 \
+  libdrm-dev \
+  libxkbcommon-dev \
+  libgbm-dev \
+  libasound-dev
+
+RUN su vscode -c "umask 0002 && pnpm install -g -D @playwright/test && npx playwright install \
+  &&  npx playwright install-deps"
+
 USER vscode
+
 ENTRYPOINT ["docker-entrypoint.sh"]

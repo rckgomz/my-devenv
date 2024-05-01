@@ -2,3 +2,5 @@
 .devcontainer/volume/
     
 .devcontainer/volume/cache
+
+.pnpm-store/
