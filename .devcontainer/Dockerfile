@@ -311,23 +311,9 @@ RUN LUA_ROCKS_DOWNLOAD_DIR=$(mktemp -d) \
 RUN su vscode -c "umask 0002 && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" \
   && su vscode -c "umask 0002 && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" \
   && su vscode -c "umask 0002 && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/themes/powerlevel10k" \
-  && su vscode -c "umask 0002 && mkdir /home/vscode/.zsh/ && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git /tmp/zsh-syntax-highlighting && cp -v /tmp/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh /home/vscode/.zsh/" \
-  && su vscode -c "umask 0002 && git clone https://github.com/gpakosz/.tmux.git home/vscode/.config/tmux"
+  && su vscode -c "umask 0002 && mkdir /home/vscode/.zsh/ && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git /tmp/zsh-syntax-highlighting && cp -v /tmp/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh /home/vscode/.zsh/" #\
+#  && su vscode -c "umask 0002 && git clone https://github.com/gpakosz/.tmux.git home/vscode/.config/tmux"
 
-#copying config
-# COPY ./dotfiles /tmp/tmp-dotfiles
-RUN su vscode -c "umask 0002 && rm -rf /home/vscode/.zshrc && ln -s /workspace/.devcontainer/dotfiles/shell/.zshrc /home/vscode/.zshrc"\
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/shell/.p10k.zsh /home/vscode/.p10k.zsh" \
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/shell/aliases.zsh ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/aliases.zsh" \
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/shell/exports.zsh ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/exports.zsh" \
-  && su vscode -c "umask 0002 && rm -rf /home/vscode/.config/tmux/.tmux.conf.local && ln -s /workspace/.devcontainer/dotfiles/tmux/.tmux.conf.local /home/vscode/.config/tmux/.tmux.conf.local" \
-  && su vscode -c "umask 0002 && ln -s -f /home/vscode/.config/tmux/.tmux.conf /home/vscode/.tmux.conf" \
-  && su vscode -c "umask 0002 && ln -s /home/vscode/.config/tmux/.tmux.conf.local /home/vscode/.tmux.conf.local" \
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/mycli /home/vscode/.config/mycli"\
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/lazydocker /home/vscode/.config/lazydocker" \
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/lazygit /home/vscode/.config/lazygit"\
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bat /home/vscode/.config/bat && bat cache --build"\
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bottom /home/vscode/.config/bottom"
 
 # tree-sitter
 RUN TREE_SITTER_DOWNLOAD_DIR=$(mktemp -d) \
@@ -354,8 +340,19 @@ RUN NVIM_DOWNLOAD_DIR=$(mktemp -d) \
 RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall docker-compose-language-service dockerfile-language-server jq-lsp markdownlint node-debug2-adapter prisma-language-server typescript-language-server vim-language-server yaml-language-server lua-language-server html-lsp json-lsp tailwindcss-language-server nxls ' -c 'qa'"
 RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall prettierd yamlfmt sqlls eslint_d jsonlint yamllint sqlfluff codespell luacheck jdtls delve go-debug-adapter golangci-lint golangci-lint-langserver golines graphql-language-service-cli goimports gopls rust-analyzer stylua shfmt rustfmt ' -c 'qa'"
 # RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall bash-language-server, bash-debug-adapter, css-lsp ' -c 'qa'"
+
 RUN su vscode -c "umask 0002 && rm -rf /home/vscode/.config/nvim" \
-  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/nvim/ /home/vscode/.config/nvim"
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/nvim/ /home/vscode/.config/nvim" \
+  && su vscode -c "umask 0002 && rm -rf /home/vscode/.zshrc && ln -s /workspace/.devcontainer/dotfiles/shell/.zshrc /home/vscode/.zshrc"\
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/shell/.p10k.zsh /home/vscode/.p10k.zsh" \
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/shell/aliases.zsh ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/aliases.zsh" \
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/shell/exports.zsh ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/exports.zsh" \
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/tmux /home/vscode/.config/tmux" \
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/mycli /home/vscode/.config/mycli"\
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/lazydocker /home/vscode/.config/lazydocker" \
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/lazygit /home/vscode/.config/lazygit"\
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bat /home/vscode/.config/bat && bat cache --build"\
+  && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bottom /home/vscode/.config/bottom"
 
 RUN rm -rf /tmp/tmp* \
   && apt-get autoremove -y \

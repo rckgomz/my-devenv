@@ -1,0 +1,250 @@
+[2024-05-14 16:23:33.551]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 16:23:33.560]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 16:23:33.599]	 Installing "tmux-continuum"
+[2024-05-14 16:23:33.599]	 Installing "tmux-copycat"
+[2024-05-14 16:23:33.599]	 Installing "vim-tmux-navigator"
+[2024-05-14 16:23:33.599]	 Installing "tmux-resurrect"
+[2024-05-14 16:23:33.600]	 Installing "tmux-yank"
+[2024-05-14 16:23:33.986]	   "vim-tmux-navigator" download success
+[2024-05-14 16:23:34.002]	   "tmux-continuum" download success
+[2024-05-14 16:23:34.064]	   "tmux-yank" download success
+[2024-05-14 16:23:34.080]	   "tmux-copycat" download success
+[2024-05-14 16:23:34.601]	   "tmux-resurrect" download success
+[2024-05-14 16:23:34.618]	 Done.
+
+[2024-05-14 16:23:52.928]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 16:23:52.937]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 16:23:52.980]	 Already installed "tmux-copycat"
+[2024-05-14 16:23:52.981]	 Already installed "tmux-continuum"
+[2024-05-14 16:23:52.981]	 Already installed "vim-tmux-navigator"
+[2024-05-14 16:23:52.981]	 Already installed "tmux-resurrect"
+[2024-05-14 16:23:52.984]	 Already installed "tmux-yank"
+[2024-05-14 16:23:53.012]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 16:23:53.033]	 Updating all plugins!
+[2024-05-14 16:23:53.033]	 
+[2024-05-14 16:23:53.378]	   "vim-tmux-navigator" update success
+[2024-05-14 16:23:53.378]	   "tmux-continuum" update success
+[2024-05-14 16:23:53.380]	     | Already up to date.
+[2024-05-14 16:23:53.380]	     | Already up to date.
+[2024-05-14 16:23:53.380]	   "tmux-yank" update success
+[2024-05-14 16:23:53.381]	   "tmux-resurrect" update success
+[2024-05-14 16:23:53.381]	   "tmux-copycat" update success
+[2024-05-14 16:23:53.382]	     | Already up to date.
+[2024-05-14 16:23:53.383]	     | Already up to date.
+[2024-05-14 16:23:53.383]	     | Already up to date.
+[2024-05-14 16:23:53.397]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 16:23:53.501]	 Done.
+
+[2024-05-14 19:33:15.841]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 19:33:15.880]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 19:33:16.355]	 unknown variable: TMUX_PLUGIN_MANAGER_PATH
+[2024-05-14 19:33:16.360]	 FATAL: Tmux Plugin Manager not configured in tmux.conf
+[2024-05-14 19:33:16.361]	 Aborting.
+[2024-05-14 19:33:16.402]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 19:33:16.953]	 unknown variable: TMUX_PLUGIN_MANAGER_PATH
+[2024-05-14 19:33:16.956]	 FATAL: Tmux Plugin Manager not configured in tmux.conf
+[2024-05-14 19:33:16.956]	 Aborting.
+[2024-05-14 19:33:16.995]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 19:33:17.610]	 unknown variable: TMUX_PLUGIN_MANAGER_PATH
+[2024-05-14 19:33:17.614]	 FATAL: Tmux Plugin Manager not configured in tmux.conf
+[2024-05-14 19:33:17.614]	 Aborting.
+[2024-05-14 19:33:17.653]	 Done.
+
+[2024-05-14 19:34:31.615]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 19:34:31.645]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 19:34:31.702]	 Already installed "tmux-copycat"
+[2024-05-14 19:34:31.702]	 Already installed "tmux-continuum"
+[2024-05-14 19:34:31.702]	 Already installed "tmux-resurrect"
+[2024-05-14 19:34:31.702]	 Already installed "vim-tmux-navigator"
+[2024-05-14 19:34:31.703]	 Already installed "tmux-yank"
+[2024-05-14 19:34:31.736]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 19:34:32.057]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 19:34:32.086]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 19:34:32.169]	 Already installed "tmux-copycat"
+[2024-05-14 19:34:32.170]	 Already installed "tmux-continuum"
+[2024-05-14 19:34:32.170]	 Already installed "tmux-resurrect"
+[2024-05-14 19:34:32.171]	 Already installed "vim-tmux-navigator"
+[2024-05-14 19:34:32.171]	 Already installed "tmux-yank"
+[2024-05-14 19:34:32.211]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 19:34:31.769]	 Updating all plugins!
+[2024-05-14 19:34:31.770]	 
+[2024-05-14 19:34:32.127]	   "tmux-copycat" update success
+[2024-05-14 19:34:32.134]	     | Already up to date.
+[2024-05-14 19:34:32.179]	   "tmux-continuum" update success
+[2024-05-14 19:34:32.184]	     | Already up to date.
+[2024-05-14 19:34:32.223]	   "tmux-yank" update success
+[2024-05-14 19:34:32.224]	   "tmux-resurrect" update success
+[2024-05-14 19:34:32.228]	     | Already up to date.
+[2024-05-14 19:34:32.228]	     | Already up to date.
+[2024-05-14 19:34:32.481]	   "vim-tmux-navigator" update success
+[2024-05-14 19:34:32.488]	     | Already up to date.
+[2024-05-14 19:34:32.520]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 19:34:32.641]	 Done.
+
+[2024-05-14 19:34:32.249]	 Updating all plugins!
+[2024-05-14 19:34:32.249]	 
+[2024-05-14 19:34:32.659]	   "tmux-copycat" update success
+[2024-05-14 19:34:32.661]	   "tmux-resurrect" update success
+[2024-05-14 19:34:32.666]	     | Already up to date.
+[2024-05-14 19:34:32.668]	     | Already up to date.
+[2024-05-14 19:34:32.705]	   "tmux-continuum" update success
+[2024-05-14 19:34:32.711]	     | Already up to date.
+[2024-05-14 19:34:32.718]	   "vim-tmux-navigator" update success
+[2024-05-14 19:34:32.726]	     | Already up to date.
+[2024-05-14 19:34:33.207]	   "tmux-yank" update success
+[2024-05-14 19:34:33.211]	     | Already up to date.
+[2024-05-14 19:34:33.245]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 19:34:33.310]	 Removing "tmux-continuum"
+[2024-05-14 19:34:33.315]	   "tmux-continuum" clean success
+[2024-05-14 19:34:33.324]	 Removing "tmux-copycat"
+[2024-05-14 19:34:33.327]	   "tmux-copycat" clean success
+[2024-05-14 19:34:33.330]	 Removing "tmux-resurrect"
+[2024-05-14 19:34:33.336]	   "tmux-resurrect" clean success
+[2024-05-14 19:34:33.339]	 Removing "tmux-yank"
+[2024-05-14 19:34:33.343]	   "tmux-yank" clean success
+[2024-05-14 19:34:33.350]	 Removing "vim-tmux-navigator"
+[2024-05-14 19:34:33.358]	   "vim-tmux-navigator" clean success
+[2024-05-14 19:34:33.380]	 Done.
+
+[2024-05-14 19:41:52.634]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 19:41:52.654]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 19:41:53.426]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 19:41:53.455]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 19:41:53.541]	 Already installed "tmux-copycat"
+[2024-05-14 19:41:53.542]	 Already installed "vim-tmux-navigator"
+[2024-05-14 19:41:53.543]	 Already installed "tmux-yank"
+[2024-05-14 19:41:53.548]	 Already installed "tmux-resurrect"
+[2024-05-14 19:41:53.548]	 Already installed "tmux-continuum"
+[2024-05-14 19:41:53.579]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 19:41:52.712]	 Installing "tmux-copycat"
+[2024-05-14 19:41:52.713]	 Installing "tmux-resurrect"
+[2024-05-14 19:41:52.713]	 Installing "tmux-continuum"
+[2024-05-14 19:41:52.714]	 Installing "vim-tmux-navigator"
+[2024-05-14 19:41:52.715]	 Installing "tmux-yank"
+[2024-05-14 19:41:53.242]	   "tmux-copycat" download success
+[2024-05-14 19:41:53.330]	   "tmux-yank" download success
+[2024-05-14 19:41:53.598]	   "vim-tmux-navigator" download success
+[2024-05-14 19:41:53.850]	   "tmux-continuum" download success
+[2024-05-14 19:41:53.995]	   "tmux-resurrect" download success
+[2024-05-14 19:41:54.031]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 19:41:53.614]	 Updating all plugins!
+[2024-05-14 19:41:53.614]	 
+[2024-05-14 19:41:53.949]	   "tmux-continuum" update fail
+[2024-05-14 19:41:53.955]	     | error: The following untracked working tree files would be overwritten by merge:
+[2024-05-14 19:41:53.955]	     | 	.gitattributes
+[2024-05-14 19:41:53.955]	     | 	CHANGELOG.md
+[2024-05-14 19:41:53.955]	     | 	CONTRIBUTING.md
+[2024-05-14 19:41:53.955]	     | 	LICENSE.md
+[2024-05-14 19:41:53.955]	     | 	README.md
+[2024-05-14 19:41:53.955]	     | 	continuum.tmux
+[2024-05-14 19:41:53.955]	     | 	docs/automatic_start.md
+[2024-05-14 19:41:53.955]	     | 	docs/continuum_status.md
+[2024-05-14 19:41:53.955]	     | 	docs/faq.md
+[2024-05-14 19:41:53.955]	     | 	docs/multiple_tmux_servers.md
+[2024-05-14 19:41:53.955]	     | 	docs/systemd_details.md
+[2024-05-14 19:41:53.955]	     | 	scripts/check_tmux_version.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/continuum_restore.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/continuum_save.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/continuum_status.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/README.md
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/osx_alacritty_start_tmux.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/osx_disable.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/osx_enable.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/osx_iterm_start_tmux.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/osx_kitty_start_tmux.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/osx_terminal_start_tmux.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/systemd_disable.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/handle_tmux_automatic_start/systemd_enable.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/helpers.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/shared.sh
+[2024-05-14 19:41:53.955]	     | 	scripts/variables.sh
+[2024-05-14 19:41:53.955]	     | Please move or remove them before you merge.
+[2024-05-14 19:41:53.955]	     | Aborting
+[2024-05-14 19:41:53.956]	   "tmux-copycat" update success
+[2024-05-14 19:41:53.960]	     | Already up to date.
+[2024-05-14 19:41:54.012]	   "vim-tmux-navigator" update success
+[2024-05-14 19:41:54.017]	     | Already up to date.
+[2024-05-14 19:41:54.023]	   "tmux-resurrect" update success
+[2024-05-14 19:41:54.027]	     | Already up to date.
+[2024-05-14 19:41:54.047]	   "tmux-yank" update success
+[2024-05-14 19:41:54.051]	     | Already up to date.
+[2024-05-14 19:41:54.085]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 19:41:54.193]	 Done.
+
+[2024-05-14 19:41:54.064]	 Updating all plugins!
+[2024-05-14 19:41:54.064]	 
+[2024-05-14 19:41:54.466]	   "tmux-resurrect" update success
+[2024-05-14 19:41:54.467]	   "tmux-copycat" update success
+[2024-05-14 19:41:54.469]	     | Already up to date.
+[2024-05-14 19:41:54.469]	     | Already up to date.
+[2024-05-14 19:41:54.527]	   "tmux-continuum" update success
+[2024-05-14 19:41:54.531]	     | Already up to date.
+[2024-05-14 19:41:54.550]	   "vim-tmux-navigator" update success
+[2024-05-14 19:41:54.554]	     | Already up to date.
+[2024-05-14 19:41:54.555]	   "tmux-yank" update success
+[2024-05-14 19:41:54.558]	     | Already up to date.
+[2024-05-14 19:41:54.588]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 19:41:54.644]	 Removing "tmux-continuum"
+[2024-05-14 19:41:54.648]	   "tmux-continuum" clean success
+[2024-05-14 19:41:54.651]	 Removing "tmux-copycat"
+[2024-05-14 19:41:54.657]	   "tmux-copycat" clean success
+[2024-05-14 19:41:54.661]	 Removing "tmux-resurrect"
+[2024-05-14 19:41:54.667]	   "tmux-resurrect" clean success
+[2024-05-14 19:41:54.670]	 Removing "tmux-yank"
+[2024-05-14 19:41:54.674]	   "tmux-yank" clean success
+[2024-05-14 19:41:54.679]	 Removing "vim-tmux-navigator"
+[2024-05-14 19:41:54.682]	   "vim-tmux-navigator" clean success
+[2024-05-14 19:41:54.713]	 Done.
+
+[2024-05-14 20:26:43.436]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 20:26:43.458]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 20:26:43.525]	 Installing "tmux-resurrect"
+[2024-05-14 20:26:43.526]	 Installing "tmux-copycat"
+[2024-05-14 20:26:43.526]	 Installing "tmux-continuum"
+[2024-05-14 20:26:43.528]	 Installing "tmux-yank"
+[2024-05-14 20:26:43.529]	 Installing "vim-tmux-navigator"
+[2024-05-14 20:26:43.970]	   "vim-tmux-navigator" download success
+[2024-05-14 20:26:43.980]	   "tmux-continuum" download success
+[2024-05-14 20:26:44.148]	   "tmux-yank" download success
+[2024-05-14 20:26:44.175]	   "tmux-copycat" download success
+[2024-05-14 20:26:44.570]	   "tmux-resurrect" download success
+[2024-05-14 20:26:44.589]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 20:26:44.614]	 Updating all plugins!
+[2024-05-14 20:26:44.614]	 
+[2024-05-14 20:26:44.951]	   "tmux-copycat" update success
+[2024-05-14 20:26:44.953]	     | Already up to date.
+[2024-05-14 20:26:44.974]	   "tmux-resurrect" update success
+[2024-05-14 20:26:44.979]	     | Already up to date.
+[2024-05-14 20:26:45.003]	   "vim-tmux-navigator" update success
+[2024-05-14 20:26:45.007]	     | Already up to date.
+[2024-05-14 20:26:45.017]	   "tmux-continuum" update success
+[2024-05-14 20:26:45.020]	     | Already up to date.
+[2024-05-14 20:26:45.320]	   "tmux-yank" update success
+[2024-05-14 20:26:45.326]	     | Already up to date.
+[2024-05-14 20:26:45.355]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 20:26:45.450]	 Done.
+
+[2024-05-14 20:32:31.407]	 List of discovered tpm plugins: tmux-plugins/tmux-copycat tmux-plugins/tmux-resurrect tmux-plugins/tmux-continuum christoomey/vim-tmux-navigator tmux-plugins/tmux-yank
+[2024-05-14 20:32:31.423]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/install_plugins
+[2024-05-14 20:32:31.469]	 Already installed "tmux-resurrect"
+[2024-05-14 20:32:31.469]	 Already installed "tmux-continuum"
+[2024-05-14 20:32:31.469]	 Already installed "tmux-copycat"
+[2024-05-14 20:32:31.469]	 Already installed "vim-tmux-navigator"
+[2024-05-14 20:32:31.472]	 Already installed "tmux-yank"
+[2024-05-14 20:32:31.490]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/update_plugins all
+[2024-05-14 20:32:31.512]	 Updating all plugins!
+[2024-05-14 20:32:31.512]	 
+[2024-05-14 20:32:31.844]	   "vim-tmux-navigator" update success
+[2024-05-14 20:32:31.847]	     | Already up to date.
+[2024-05-14 20:32:31.905]	   "tmux-copycat" update success
+[2024-05-14 20:32:31.909]	     | Already up to date.
+[2024-05-14 20:32:31.918]	   "tmux-resurrect" update success
+[2024-05-14 20:32:31.920]	     | Already up to date.
+[2024-05-14 20:32:31.933]	   "tmux-continuum" update success
+[2024-05-14 20:32:31.935]	     | Already up to date.
+[2024-05-14 20:32:32.006]	   "tmux-yank" update success
+[2024-05-14 20:32:32.009]	     | Already up to date.
+[2024-05-14 20:32:32.027]	 Invoking /home/vscode/.config/tmux/plugins/tpm/bin/clean_plugins all
+[2024-05-14 20:32:32.087]	 Done.
+

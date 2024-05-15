@@ -94,6 +94,7 @@ plugins=(
   vi-mode # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode
   zsh-interactive-cd # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-interactive-cd 
   zsh-navigation-tools # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -146,6 +147,11 @@ else
   # If this is a tmux session then use the symlinked SSH_AUTH_SOCK
   export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
 
 # source rust 
 [ -f ~/.cargo/env ] && source ~/.cargo/env

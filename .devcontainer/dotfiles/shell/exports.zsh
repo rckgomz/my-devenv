@@ -11,6 +11,8 @@ export PATH=${PATH}:/home/vscode/.local/bin:/home/vscode/.local:/opt/venv/bin
 
 # Term colors
 export COLORTERM=truecolor
+export TERM=xterm-256color
+export ZSH_TMUX_AUTOSTART=true
 
 # FZF config
 export FZF_DEFAULT_COMMAND='fdfind --type f --color always --hidden --follow --exclude .git'
