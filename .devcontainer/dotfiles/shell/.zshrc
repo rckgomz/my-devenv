@@ -86,7 +86,6 @@ plugins=(
   # aws
   colored-man-pages
   command-not-found
-  fd #https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fd
   fzf #https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/fzf
   copybuffer #https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copybuffer
   copypath # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copypath w
@@ -110,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='lvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
