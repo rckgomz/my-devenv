@@ -1,6 +1,7 @@
 .devcontainer/dotfiles/lazygit/state.yml
+.devcontainer/dotfiles/nvim/lazy-lock.json
+.devcontainer/dotfiles/nvim/lazyvim.json
+.devcontainer/dotfiles/tmux/plugins/
 .devcontainer/volume/
-    
 .devcontainer/volume/cache
-
 .pnpm-store/
