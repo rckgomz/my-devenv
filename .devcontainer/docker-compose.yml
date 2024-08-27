@@ -28,6 +28,7 @@ services:
       - USE_CDK_LOCAL=${USE_CDK_LOCAL-0}
       - GIT_EDITOR=${GIT_EDITOR-lvim}
       - AWS_SAM_LOCAL=true
+      - DISPLAY=${DISPLAY}
 
     volumes:
       - ..:/workspace:cached
@@ -36,6 +37,7 @@ services:
       - ~/.aws:/home/vscode/.aws:cached
       - ~/.ssh:/home/vscode/.ssh:cached
       - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/.X11-unix:/tmp/.X11-unix
 
     ports:
       - "2000:2000"

@@ -67,3 +67,8 @@ vim.keymap.set("n", "<leader>s/", function()
     previewer = false,
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
+
+-- notion
+vim.keymaps.set("n", "<leader>kk", function()
+  require("notion").openMenu()
+end, { desc = "Notion" })

@@ -73,28 +73,29 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 ENV TZ="America/Chicago"
 
 # aws cli
-RUN AWS_DOWNLOAD_DIR=$(mktemp -d) \
+RUN AWS_DOWNLOAD_DIR="$(mktemp -d)" \
   && FILE="awscli-exe-linux-x86_64.zip" \
   && URL="https://awscli.amazonaws.com/${FILE}" \
-  && wget ${URL} -P ${AWS_DOWNLOAD_DIR} \
-  && unzip ${AWS_DOWNLOAD_DIR}/${FILE} -d ${AWS_DOWNLOAD_DIR} \
-  && ${AWS_DOWNLOAD_DIR}/aws/install
+  && wget -q "${URL}" -P "${AWS_DOWNLOAD_DIR}" \
+  && unzip "${AWS_DOWNLOAD_DIR}/${FILE}" -d "${AWS_DOWNLOAD_DIR}" \
+  && "${AWS_DOWNLOAD_DIR}/aws/install"
 
 # aws session manager plugin for debian; helps debug codebuild
-RUN AWS_SSM_DOWNLOAD_DIR=$(mktemp -d) \
+RUN AWS_SSM_DOWNLOAD_DIR="$(mktemp -d)" \
   && FILE="session-manager-plugin.deb" \
   && URL="https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/${FILE}" \
-  && wget ${URL} -P ${AWS_SSM_DOWNLOAD_DIR} \
-  && dpkg -i ${AWS_SSM_DOWNLOAD_DIR}/${FILE}
+  && wget -q "${URL}" -P "${AWS_SSM_DOWNLOAD_DIR}" \
+  && dpkg -i "${AWS_SSM_DOWNLOAD_DIR}/${FILE}"
 
 # aws sam
-RUN AWS_SAM_DOWNLOAD_DIR=$(mktemp -d) \
+RUN AWS_SAM_DOWNLOAD_DIR="$(mktemp -d)" \
   && FILE="aws-sam-cli-linux-x86_64.zip" \
   && URL="https://github.com/aws/aws-sam-cli/releases/latest/download/${FILE}" \
-  && wget ${URL} -P ${AWS_SAM_DOWNLOAD_DIR} \
-  && unzip ${AWS_SAM_DOWNLOAD_DIR}/${FILE} -d ${AWS_SAM_DOWNLOAD_DIR}/sam-installation \
-  && ${AWS_SAM_DOWNLOAD_DIR}/sam-installation/install
+  && wget -q "${URL}" -P "${AWS_SAM_DOWNLOAD_DIR}" \
+  && unzip "${AWS_SAM_DOWNLOAD_DIR}/${FILE}" -d "${AWS_SAM_DOWNLOAD_DIR}/sam-installation" \
+  && "${AWS_SAM_DOWNLOAD_DIR}/sam-installation/install"
 
+SHELL ["/bin/bash", "-c"]
 # httpie
 RUN curl -sL https://packages.httpie.io/deb/KEY.gpg | \
   gpg --dearmor | \
@@ -126,17 +127,17 @@ ENV LC_ALL=en_US.UTF-8
 
 # python
 RUN python3 -m venv /opt/venv
-RUN . /opt/venv/bin/activate && pip3 install pynvim  mycli pgcli localstack awscli-local
-RUN . /opt/venv/bin/activate && pip3 install aws-sam-cli-local
+RUN . /opt/venv/bin/activate && pip3 install --no-cache-dir pynvim  mycli pgcli localstack awscli-local
+RUN . /opt/venv/bin/activate && pip3 install --no-cache-dir aws-sam-cli-local
 
 # tmux
-RUN TMUX_DOWNLOAD_DIR=$(mktemp -d) \
+RUN TMUX_DOWNLOAD_DIR="$(mktemp -d)" \
   && TMUX_VERSION=$(curl -s "https://api.github.com/repos/tmux/tmux/releases/latest" | jq -r ".tag_name") \
-  && FILE=tmux-${TMUX_VERSION}.tar.gz \
+  && FILE=tmux-"${TMUX_VERSION}.tar.gz" \
   && URL="https://github.com/tmux/tmux/releases/latest/download/${FILE}" \
-  && wget ${URL} -P ${TMUX_DOWNLOAD_DIR} \
-  && cd ${TMUX_DOWNLOAD_DIR} && tar -xf "${TMUX_DOWNLOAD_DIR}/${FILE}" && cd .. \
-  && cd ${TMUX_DOWNLOAD_DIR}/tmux-${TMUX_VERSION}/ \
+  && wget -q "${URL}" -P "${TMUX_DOWNLOAD_DIR}" \
+  && cd "${TMUX_DOWNLOAD_DIR}" && tar -xf "${TMUX_DOWNLOAD_DIR}/${FILE}" && cd .. \
+  && cd "${TMUX_DOWNLOAD_DIR}/tmux-${TMUX_VERSION}"/ \
   && PKG_CONFIG_PATH=/home/vscode/.local/lib/pkgconfig ./configure --prefix=/home/vscode/.local \
   && make && make install
 
@@ -144,25 +145,26 @@ RUN TMUX_DOWNLOAD_DIR=$(mktemp -d) \
 RUN su vscode -c "umask 0002 && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
 
 # golang
-ENV PATH=${PATH}:/usr/local/go/bin
-RUN GO111MODULE=auto \
-  && DOWNLOAD_DIR=$(mktemp -d) \
+ENV PATH="${PATH}:/usr/local/go/bin"
+RUN set -o pipefail \
+  && GO111MODULE=auto \
+  && DOWNLOAD_DIR="$(mktemp -d)" \
   && GOVERSION=$(curl https://go.dev/dl/\?mode\=json | jq ".[0].version" | sed s/\"//g) \
-  && echo ${GOVERSIN} \
-  && wget https://storage.googleapis.com/golang/${GOVERSION}.linux-amd64.tar.gz -P ${DOWNLOAD_DIR} \
-  && tar -C /usr/local -xzf ${DOWNLOAD_DIR}/${GOVERSION}.linux-amd64.tar.gz
+  && echo "${GOVERSION}" \
+  && wget -q "https://storage.googleapis.com/golang/${GOVERSION}.linux-amd64.tar.gz" -P "${DOWNLOAD_DIR}" \
+  && tar -C /usr/local -xzf "${DOWNLOAD_DIR}/${GOVERSION}.linux-amd64.tar.gz"
 
 # android sdk
 ENV ANDROID_HOME="/home/vscode/android_sdk"
 ENV PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
 ENV ANDROID_USER_HOME="/home/vscode/.android"
-RUN ANDROID_DOWNLOAD_DIR=$(mktemp -d) \
+RUN ANDROID_DOWNLOAD_DIR="$(mktemp -d)" \
   && ANDROID_VERSION="9477386" \
   && FILE="commandlinetools-linux-${ANDROID_VERSION}_latest.zip" \
   && URL="https://dl.google.com/android/repository/${FILE}" \
-  && wget ${URL} -P ${ANDROID_DOWNLOAD_DIR} \
+  && wget -q "${URL}" -P "${ANDROID_DOWNLOAD_DIR}" \
   && mkdir -p /home/vscode/android_sdk \
-  && unzip ${ANDROID_DOWNLOAD_DIR}/${FILE} -d /home/vscode/android_sdk/tmp \
+  && unzip "${ANDROID_DOWNLOAD_DIR}/${FILE}" -d /home/vscode/android_sdk/tmp \
   && mkdir -p /home/vscode/android_sdk/cmdline-tools/latest \
   && mv /home/vscode/android_sdk/tmp/cmdline-tools/* /home/vscode/android_sdk/cmdline-tools/latest/ \
   && rm -rf /vscode/home/android_sdk/tmp \
@@ -183,18 +185,18 @@ RUN su vscode -c "umask 0002 && pnpm install -g -D @commitlint/cli @commitlint/c
   tree-sitter-cli nx@latest  nativescript  aws-cdk aws-cdk-local log4js"
 
 # btm
-RUN BTM_DOWNLOAD_DIR=$(mktemp -d) \
+RUN BTM_DOWNLOAD_DIR="$(mktemp -d)" \
   && BOTTOM_VERSION=$(curl -s "https://api.github.com/repos/ClementTsang/bottom/releases/latest" | jq -r ".tag_name") \
-  && wget "https://github.com/ClementTsang/bottom/releases/download/${BOTTOM_VERSION}/bottom_${BOTTOM_VERSION}_amd64.deb" \
-  -P ${BTM_DOWNLOAD_DIR} \
-  && dpkg -i ${BTM_DOWNLOAD_DIR}/bottom_${BOTTOM_VERSION}_amd64.deb
+  && wget -q "https://github.com/ClementTsang/bottom/releases/download/${BOTTOM_VERSION}/bottom_${BOTTOM_VERSION}-1_amd64.deb" \
+  -P "${BTM_DOWNLOAD_DIR}" \
+  && dpkg -i "${BTM_DOWNLOAD_DIR}/bottom_${BOTTOM_VERSION}-1_amd64.deb"
 
 # bat
-RUN BAT_DOWNLOAD_DIR=$(mktemp -d) \
+RUN BAT_DOWNLOAD_DIR="$(mktemp -d)" \
   && BAT_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | jq -r ".tag_name | .[1:]") \
-  && wget "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb" \
-  -P ${BAT_DOWNLOAD_DIR} \
-  && dpkg -i ${BAT_DOWNLOAD_DIR}/bat_${BAT_VERSION}_amd64.deb
+  && wget -q "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb" \
+  -P "${BAT_DOWNLOAD_DIR}" \
+  && dpkg -i "${BAT_DOWNLOAD_DIR}/bat_${BAT_VERSION}_amd64.deb"
 
 # batdiff
 RUN su vscode -c "umask 0002 && git clone https://github.com/eth-p/bat-extras.git /home/vscode/bat-extras" && \
@@ -203,48 +205,47 @@ RUN su vscode -c "umask 0002 && git clone https://github.com/eth-p/bat-extras.gi
 
 
 # delta
-RUN DELTA_DOWNLOAD_DIR=$(mktemp -d) \
+RUN DELTA_DOWNLOAD_DIR="$(mktemp -d)" \
   && DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | jq -r ".tag_name") \
-  && wget "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_amd64.deb" \
-  -P ${DELTA_DOWNLOAD_DIR} \
-  && dpkg -i ${DELTA_DOWNLOAD_DIR}/git-delta_${DELTA_VERSION}_amd64.deb
+  && wget -q "https://github.com/dandavison/delta/releases/download/${DELTA_VERSION}/git-delta_${DELTA_VERSION}_amd64.deb" \
+  -P "${DELTA_DOWNLOAD_DIR}" \
+  && dpkg -i "${DELTA_DOWNLOAD_DIR}/git-delta_${DELTA_VERSION}_amd64.deb"
 
 # lsd
-RUN LSD_DOWNLOAD_DIR=$(mktemp -d) \
+RUN LSD_DOWNLOAD_DIR="$(mktemp -d)" \
   && LSD_DOWNLOAD_VERSION=$(curl -s "https://api.github.com/repos/lsd-rs/lsd/releases/latest" | jq -r ".tag_name") \
   && LSD_VERSION=$(curl -s "https://api.github.com/repos/lsd-rs/lsd/releases/latest" | jq -r ".tag_name | .[1:]") \
-  && wget "https://github.com/lsd-rs/lsd/releases/download/${LSD_DOWNLOAD_VERSION}/lsd_${LSD_VERSION}_amd64.deb" \
-  -P ${LSD_DOWNLOAD_DIR} \
+  && wget -q "https://github.com/lsd-rs/lsd/releases/download/${LSD_DOWNLOAD_VERSION}/lsd_${LSD_VERSION}_amd64.deb" \
+  -P "${LSD_DOWNLOAD_DIR}" \
   # && dpkg -i ${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_amd64.deb
   # hack due to an error in the binary
   # Extract files from the archive
-  && ar x ${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_amd64.deb --output ${LSD_DOWNLOAD_DIR} \
-  && ls -lash ${LSD_DOWNLOAD_DIR} \
+  && ar x "${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_amd64.deb" --output "${LSD_DOWNLOAD_DIR}" \
+  && ls -lash "${LSD_DOWNLOAD_DIR}" \
   # Uncompress zstd files an re-compress them using xz
-  && zstd -d < ${LSD_DOWNLOAD_DIR}/control.tar.zst | xz > ${LSD_DOWNLOAD_DIR}/control.tar.xz \
-  && zstd -d < ${LSD_DOWNLOAD_DIR}/data.tar.zst | xz > ${LSD_DOWNLOAD_DIR}/data.tar.xz \
+  && zstd -d < "${LSD_DOWNLOAD_DIR}/control.tar.zst" | xz > "${LSD_DOWNLOAD_DIR}/control.tar.xz" \
+  && zstd -d < "${LSD_DOWNLOAD_DIR}/data.tar.zst" | xz > "${LSD_DOWNLOAD_DIR}/data.tar.xz" \
   # Re-create the Debian package in /tmp/
-  && ar -m -c -a sdsd ${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_repackaged_amd64.deb \
-  ${LSD_DOWNLOAD_DIR}/debian-binary \
-  ${LSD_DOWNLOAD_DIR}/control.tar.xz \
-  ${LSD_DOWNLOAD_DIR}/data.tar.xz \
-  && apt-get install ${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_repackaged_amd64.deb
+  && ar -m -c -a sdsd "${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_repackaged_amd64.deb" \
+  "${LSD_DOWNLOAD_DIR}/debian-binary" \
+  "${LSD_DOWNLOAD_DIR}/control.tar.xz" \
+  "${LSD_DOWNLOAD_DIR}/data.tar.xz" \
+  && apt-get install --no-install-recommends -y "${LSD_DOWNLOAD_DIR}/lsd_${LSD_VERSION}_repackaged_amd64.deb"
 
 # dive
 RUN DIVE_DOWNLOAD_DIR=$(mktemp -d) \
   && DIVE_VERSION=$(curl -s "https://api.github.com/repos/wagoodman/dive/releases/latest" | jq -r ".tag_name | .[1:]") \
-  && FILE=dive_${DIVE_VERSION}_linux_amd64.deb \
+  && FILE="dive_${DIVE_VERSION}_linux_amd64.deb" \
   && URL="https://github.com/wagoodman/dive/releases/download/v${DIVE_VERSION}/${FILE}" \
-  && wget ${URL} -P ${DIVE_DOWNLOAD_DIR} \
-  && apt install ${DIVE_DOWNLOAD_DIR}/${FILE}
+  && wget -q "${URL}" -P "${DIVE_DOWNLOAD_DIR}" \
+  && apt-get install -y --no-install-recommends "${DIVE_DOWNLOAD_DIR}/${FILE}"
 
 # lazy git
-RUN LAZYGIT_DOWNLOAD_DIR=$(mktemp -d) \
-  && LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | jq -r ".tag_name | .[1:]") \
-  && FILE=lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz \
+RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | jq -r ".tag_name | .[1:]") \
+  && FILE="lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" \
   && URL="https://github.com/jesseduffield/lazygit/releases/latest/download/${FILE}" \
-  && wget ${URL} -P ${LAZYGIT_DOWNLOAD_DIR} \
-  && tar xf ${LAZYGIT_DOWNLOAD_DIR}/${FILE} -C /usr/local/bin lazygit
+  && wget -q "${URL}" -P "${LAZYGIT_DOWNLOAD_DIR}" \
+  && tar xf "${LAZYGIT_DOWNLOAD_DIR}/${FILE}" -C /usr/local/bin lazygit
 
 # as_tree
 RUN AS_TREE_DOWNLOAD_DIR=$(mktemp -d) \
@@ -298,48 +299,44 @@ RUN LUA_DOWNLOAD_DIR=$(mktemp -d) \
   && cd ${LUA_DOWNLOAD_DIR}/lua-${LUA_VERSION} && make linux test && make install
 
 # luarocks
-RUN LUA_ROCKS_DOWNLOAD_DIR=$(mktemp -d) \
+RUN LUA_ROCKS_DOWNLOAD_DIR="$(mktemp -d)" \
   && LUA_ROCKS_VERSION="3.9.2" \
-  && FILE=luarocks-${LUA_ROCKS_VERSION}.tar.gz \
+  && FILE="luarocks-${LUA_ROCKS_VERSION}.tar.gz" \
   && URL="https://luarocks.org/releases/${FILE}" \
-  && wget ${URL} -P ${LUA_ROCKS_DOWNLOAD_DIR} \
-  && tar xf ${LUA_ROCKS_DOWNLOAD_DIR}/${FILE} -C ${LUA_ROCKS_DOWNLOAD_DIR} \
-  && cd ${LUA_ROCKS_DOWNLOAD_DIR}/luarocks-${LUA_ROCKS_VERSION} && ./configure && make && make install \
+  && wget -q "${URL}" -P "${LUA_ROCKS_DOWNLOAD_DIR}" \
+  && tar xf "${LUA_ROCKS_DOWNLOAD_DIR}/${FILE}" -C "${LUA_ROCKS_DOWNLOAD_DIR}" \
+  && cd "${LUA_ROCKS_DOWNLOAD_DIR}/luarocks-${LUA_ROCKS_VERSION}" && ./configure && make && make install \
   && sudo luarocks install luasocket
 
 #cloning zsh plugins + tmux best practices
 RUN su vscode -c "umask 0002 && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" \
   && su vscode -c "umask 0002 && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" \
   && su vscode -c "umask 0002 && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-/home/vscode/.oh-my-zsh/custom}/themes/powerlevel10k" \
-  && su vscode -c "umask 0002 && mkdir /home/vscode/.zsh/ && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git /tmp/zsh-syntax-highlighting && cp -v /tmp/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh /home/vscode/.zsh/" #\
+  && su vscode -c "umask 0002 && mkdir /home/vscode/.zsh/ && git clone https://github.com/catppuccin/zsh-syntax-highlighting.git /tmp/zsh-syntax-highlighting && cp -v /tmp/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh /home/vscode/.zsh/"
 #  && su vscode -c "umask 0002 && git clone https://github.com/gpakosz/.tmux.git home/vscode/.config/tmux"
 
-
 # tree-sitter
-RUN TREE_SITTER_DOWNLOAD_DIR=$(mktemp -d) \
+RUN TREE_SITTER_DOWNLOAD_DIR="$(mktemp -d)" \
   && TREE_SITTER_VERSION=$(curl -s "https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest" | jq -r ".tag_name") \
   && FILE=tree-sitter-linux-x64.gz \
   && URL="https://github.com/tree-sitter/tree-sitter/releases/download/${TREE_SITTER_VERSION}/${FILE}" \
-  && wget ${URL} -P ${TREE_SITTER_DOWNLOAD_DIR} \
-  && gzip -d ${TREE_SITTER_DOWNLOAD_DIR}/${FILE} \
-  && mv ${TREE_SITTER_DOWNLOAD_DIR}/tree-sitter-linux-x64 /usr/local/bin/tree-sitter
+  && wget -q "${URL}" -P "${TREE_SITTER_DOWNLOAD_DIR}" \
+  && gzip -d "${TREE_SITTER_DOWNLOAD_DIR}/${FILE}" \
+  && mv "${TREE_SITTER_DOWNLOAD_DIR}/tree-sitter-linux-x64" /usr/local/bin/tree-sitter
 
 # install neovim
 COPY ./dotfiles/nvim/ /tmp/tmp-nvim-config
-RUN NVIM_DOWNLOAD_DIR=$(mktemp -d) \
+RUN NVIM_DOWNLOAD_DIR="$(mktemp -d)" \
   && NVIM_VERSION=$(curl -s "https://api.github.com/repos/neovim/neovim/releases/latest" | jq -r ".tag_name") \
   && FILE=nvim-linux64.tar.gz \
   && URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${FILE}" \
-  && wget ${URL} -P ${NVIM_DOWNLOAD_DIR} \
-  && tar xf ${NVIM_DOWNLOAD_DIR}/${FILE} -C / \
+  && wget -q "${URL}" -P "${NVIM_DOWNLOAD_DIR}" \
+  && tar xf "${NVIM_DOWNLOAD_DIR}/${FILE}" -C / \
   && ln -fs /nvim-linux64/bin/nvim /usr/local/bin/nvim \
   && mkdir -p /home/vscode/.local/share/nvim\
   && chown -R vscode:vscode /home/vscode/.local\
   && su vscode -c "umask 0002 && mkdir -p /home/vscode/.config/nvim && cp -a /tmp/tmp-nvim-config/* /home/vscode/.config/nvim"\
   && su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'Lazy! sync' -c 'qa'"
-RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall docker-compose-language-service dockerfile-language-server jq-lsp markdownlint node-debug2-adapter prisma-language-server typescript-language-server vim-language-server yaml-language-server lua-language-server html-lsp json-lsp tailwindcss-language-server nxls ' -c 'qa'"
-RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall prettierd yamlfmt sqlls eslint_d jsonlint yamllint sqlfluff codespell luacheck jdtls delve go-debug-adapter golangci-lint golangci-lint-langserver golines graphql-language-service-cli goimports gopls rust-analyzer stylua shfmt rustfmt ' -c 'qa'"
-# RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall bash-language-server, bash-debug-adapter, css-lsp ' -c 'qa'"
 
 RUN su vscode -c "umask 0002 && rm -rf /home/vscode/.config/nvim" \
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/nvim/ /home/vscode/.config/nvim" \
@@ -354,6 +351,10 @@ RUN su vscode -c "umask 0002 && rm -rf /home/vscode/.config/nvim" \
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bat /home/vscode/.config/bat && bat cache --build"\
   && su vscode -c "umask 0002 && ln -s /workspace/.devcontainer/dotfiles/bottom /home/vscode/.config/bottom"
 
+RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall docker-compose-language-service dockerfile-language-server jq-lsp markdownlint node-debug2-adapter prisma-language-server typescript-language-server vim-language-server yaml-language-server lua-language-server html-lsp json-lsp tailwindcss-language-server nxls ' -c 'qa'"
+RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall prettierd yamlfmt sqlls eslint_d jsonlint yamllint sqlfluff codespell luacheck jdtls delve go-debug-adapter golangci-lint golangci-lint-langserver golines graphql-language-service-cli goimports gopls rust-analyzer stylua shfmt rustup ' -c 'qa'"
+RUN su vscode -c "umask 0002 && /nvim-linux64/bin/nvim --headless -c 'autocmd User MasonComplete quitall' -c 'MasonInstall css-lsp ' -c 'qa'"
+
 RUN rm -rf /tmp/tmp* \
   && apt-get autoremove -y \
   && apt-get clean -y \
@@ -363,7 +364,7 @@ COPY ./docker-entrypoint.sh /usr/local/bin/
 RUN dos2unix /usr/local/bin/docker-entrypoint.sh
 
 # playwright
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
   fonts-liberation \
   libasound2 \
   libatk-bridge2.0-0 \
@@ -399,9 +400,11 @@ RUN apt-get update && apt-get install -y \
   libdrm-dev \
   libxkbcommon-dev \
   libgbm-dev \
-  libasound-dev
+  libasound-dev \
+  && apt-get autoremove -y \
+  && apt-get clean -y 
 
-RUN su vscode -c "umask 0002 && pnpm install -g -D @playwright/test && npx playwright install \
+RUN su vscode -c "umask 0002 && pnpm install -g -D -q @playwright/test && npx playwright install \
   &&  npx playwright install-deps"
 
 USER vscode
